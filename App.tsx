@@ -141,11 +141,12 @@ const App: React.FC = () => {
               </div>
               
               <div className="relative group">
-                <div className="aspect-[1/1] max-w-[500px] w-full mx-auto overflow-hidden shadow-2xl relative z-10 border-[12px] md:border-[16px] border-white">
+                {/* Changed aspect-square to aspect-[4/5] to zoom out crop, and object-top to show head */}
+                <div className="aspect-[4/5] max-w-[450px] w-full mx-auto overflow-hidden shadow-2xl relative z-10 border-[12px] md:border-[16px] border-white">
                   <img 
-                    src="https://image2url.com/r2/default/images/1769745900083-a4552693-d504-4ced-9e85-d7377fa7b799.png" 
+                    src="https://image2url.com/r2/default/images/1769820284506-86cfe5c6-9329-4053-9d86-0169eae58337.png" 
                     alt="Eli Gunesebakan, CCIM, SIOR • Principal Broker" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
                 <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-600 -z-0 opacity-10 blur-3xl"></div>
