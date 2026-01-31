@@ -31,13 +31,7 @@ const App: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const subject = `Investment Inquiry from ${formData.name || 'Valued Client'}`;
-    // Using simple newlines which encodeURIComponent handles correctly as %0A
     const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
-    
-    // Clear form to indicate submission
-    setFormData({ name: '', email: '', message: '' });
-    
-    // Open email client
     window.location.href = `mailto:eli@imarcommercial.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
