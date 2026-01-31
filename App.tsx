@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -77,14 +78,13 @@ const App: React.FC = () => {
               <div className="order-2 lg:order-1 relative">
                 <div className="relative z-10">
                   <img 
-                    src="https://image2url.com/r2/default/images/1769746898370-cd2ae684-989c-4233-b4ab-9acc687b5c99.png" 
+                    src="https://image2url.com/r2/default/images/1769819786904-36f92e42-c428-4208-84ec-3708315293a6.png" 
                     alt="Distinguished Brokerage Solutions" 
                     className="rounded-sm shadow-2xl h-[300px] lg:h-[550px] w-full object-cover"
                   />
                 </div>
                 <div className="absolute -bottom-6 -left-6 w-full h-full border border-slate-200 -z-0"></div>
               </div>
-              {/* Fix: Changed 'class' to 'className' to resolve TSX property error */}
               <div className="order-1 lg:order-2 space-y-8">
                 <span className="text-blue-600 font-bold text-xs uppercase tracking-widest">Strategic Insight</span>
                 <h2 className="font-display text-5xl text-slate-900 leading-tight">Distinguished Brokerage for Premier Assets.</h2>
