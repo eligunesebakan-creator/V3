@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMAR COMMERCIAL | Distinguished Brokerage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .font-display { font-family: 'Playfair Display', serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Smooth transitions for navigation */
+        nav.scrolled { background: white; padding-top: 1rem; padding-bottom: 1rem; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+        nav.scrolled .brand-text { color: #0f172a; }
+        nav.scrolled .nav-link { color: #475569; }
+        nav.scrolled .nav-btn { border-color: #0f172a; color: #0f172a; }
+        nav.scrolled .nav-btn:hover { background: #0f172a; color: white; }
+        nav.scrolled .brand-icon { background: #0f172a; color: white; }
+        
+        /* Mobile menu specific styles */
+        .mobile-menu-btn-active { color: #0f172a !important; }
+        .brand-text-active { color: #0f172a !important; }
+        .brand-subtext-active { color: #94a3b8 !important; }
+        .brand-icon-active { background: #0f172a !important; color: white !important; }
+
+        /* Preloader Transition */
+        #preloader.loaded { opacity: 0; pointer-events: none; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
+</head>
+<body class="bg-white text-slate-900">
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-[100] bg-slate-950 flex items-center justify-center transition-opacity duration-1000 ease-in-out">
+        <div class="text-center animate-pulse">
+            <span class="font-display text-5xl md:text-6xl text-white tracking-widest font-bold">IMAR</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent py-6 md:py-8">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 group cursor-pointer relative z-50">
+                <div id="brand-icon" class="brand-icon w-10 h-10 rounded-sm flex items-center justify-center transition-colors bg-white text-slate-950">
+                    <span class="font-bold text-lg">I</span>
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span id="brand-text" class="brand-text text-xl md:text-2xl font-bold tracking-tighter transition-colors text-white">
+                        IMAR <span class="font-light text-slate-400">COMMERCIAL</span>
+                    </span>
+                    <span id="brand-subtext" class="text-[9px] font-bold uppercase tracking-[0.5em] text-white/60 transition-colors">
+                        Premier Hospitality Assets
+                    </span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-10 text-[11px] font-bold uppercase tracking-widest text-white/90">
+                <a href="#services" class="nav-link hover:text-blue-500 transition-colors">Expertise</a>
+                <a href="#insights" class="nav-link hover:text-blue-500 transition-colors">Insights</a>
+                <a href="#about" class="nav-link hover:text-blue-500 transition-colors">Bio</a>
+                <a href="#contact" class="nav-btn px-8 py-3 rounded-sm transition-all border border-white/50 text-white hover:bg-white hover:text-slate-900">
+                    Contact
+                </a>
+            </div>
+
+            <button id="mobile-menu-btn" class="text-white md:hidden relative z-50 text-2xl focus:outline-none transition-colors">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transition-transform duration-300 translate-x-full md:hidden flex flex-col justify-center items-center gap-8">
+        <a href="#services" class="mobile-link text-2xl font-display font-bold text-slate-900 hover:text-blue-600 transition-colors">Expertise</a>
+        <a href="#insights" class="mobile-link text-2xl font-display font-bold text-slate-900 hover:text-blue-600 transition-colors">Insights</a>
+        <a href="#about" class="mobile-link text-2xl font-display font-bold text-slate-900 hover:text-blue-600 transition-colors">Bio</a>
+        <a href="#contact" class="mobile-link text-2xl font-display font-bold text-slate-900 hover:text-blue-600 transition-colors">Contact</a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center overflow-hidden bg-slate-950">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=90" alt="Architecture" class="w-full h-full object-cover opacity-40">
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/40 to-transparent"></div>
+            </div>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-300 text-[10px] font-bold uppercase tracking-[0.2em] mb-8 md:mb-10">
+                        Distinguished Brokerage Solutions
+                    </div>
+                    <h1 class="font-display text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-6 md:mb-8">
+                        IMAR <br />
+                        <span class="text-slate-400 font-light italic">COMMERCIAL</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-200 mb-8 md:mb-12 max-w-lg leading-relaxed font-light">
+                        Expert hospitality property brokerage facilitating the acquisition and disposition of premier assets for sophisticated investors.
+                    </p>
+                    <a href="#contact" class="inline-block bg-white text-slate-950 px-10 md:px-14 py-4 md:py-5 rounded-sm text-xs font-bold uppercase tracking-[0.2em] hover:bg-slate-200 transition-all shadow-2xl">
+                        Direct Contact
+                    </a>
+                </div>
+
+                <div class="hidden lg:flex justify-end">
+                    <div class="border border-white/20 bg-slate-900/60 p-8 max-w-sm relative overflow-hidden backdrop-blur-sm">
+                        <div class="relative z-10 space-y-8">
+                           <div>
+                             <div class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.4em] mb-4">Eli Gunesebakan, Principal</div>
+                             <div class="flex gap-8">
+                                <div class="flex flex-col">
+                                    <span class="text-4xl font-display text-white">CCIM</span>
+                                    <span class="text-[8px] font-bold text-slate-500 uppercase mt-1 tracking-widest">Investment</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-4xl font-display text-white">SIOR</span>
+                                    <span class="text-[8px] font-bold text-slate-500 uppercase mt-1 tracking-widest">Industrial</span>
+                                </div>
+                             </div>
+                           </div>
+                           <div class="h-[1px] bg-white/10 w-full"></div>
+                           <div class="grid grid-cols-2 gap-6">
+                              <div>
+                                <div class="text-3xl font-display text-white">10+</div>
+                                <div class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">Years Active</div>
+                              </div>
+                              <div>
+                                <div class="text-3xl font-display text-white">B.S.E</div>
+                                <div class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">Mechanical Eng.</div>
+                              </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 animate-bounce opacity-40">
+                <span class="text-[10px] font-bold text-white uppercase tracking-[0.3em] rotate-90 mb-8">Scroll</span>
+                <div class="w-[1px] h-12 bg-white"></div>
+            </div>
+        </section>
+
+        <!-- Stats strip -->
+        <section class="py-20 border-y border-slate-100 bg-white">
+          <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-around gap-8">
+            <div class="text-center min-w-[150px]">
+              <div class="text-4xl font-display font-bold text-slate-900 mb-2">10+</div>
+              <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">Years Experience</div>
+            </div>
+            <div class="text-center min-w-[150px]">
+              <div class="text-4xl font-display font-bold text-slate-900 mb-2">CCIM</div>
+              <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">Investment Member</div>
+            </div>
+            <div class="text-center min-w-[150px]">
+              <div class="text-4xl font-display font-bold text-slate-900 mb-2">SIOR</div>
+              <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">Industrial & Office</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section id="services" class="py-24 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="text-blue-600 font-bold text-xs uppercase tracking-[0.2em] mb-4 block">Expert Hospitality Property Brokerage</span>
+                    <h2 class="font-display text-4xl text-slate-900 mb-4">Distinguished Brokerage Solutions</h2>
+                    <p class="text-slate-500 max-w-2xl mx-auto font-light leading-relaxed">Imar Commercial excels in facilitating the acquisition and disposition of premier hospitality assets, leveraging industry acumen to deliver optimal outcomes for sophisticated investors.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all hover:-translate-y-2">
+                        <div class="w-14 h-14 bg-slate-900 rounded-sm flex items-center justify-center text-white mb-6">
+                            <i class="fa-solid fa-compass text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">Tailored Investment Strategies</h3>
+                        <p class="text-slate-500 text-sm font-light leading-relaxed">Our team crafts refined investment strategies, meticulously aligning each opportunity with the unique objectives and risk profiles of discerning clients across the commercial real estate spectrum.</p>
+                    </div>
+                    <div class="bg-white p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all hover:-translate-y-2">
+                         <div class="w-14 h-14 bg-slate-900 rounded-sm flex items-center justify-center text-white mb-6">
+                            <i class="fa-solid fa-magnifying-glass-chart text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">Comprehensive Market Analysis</h3>
+                        <p class="text-slate-500 text-sm font-light leading-relaxed">Benefit from our advanced market intelligence and analytical prowess, ensuring every transaction is underpinned by a comprehensive understanding of prevailing trends and future projections.</p>
+                    </div>
+                    <div class="bg-white p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all hover:-translate-y-2">
+                         <div class="w-14 h-14 bg-slate-900 rounded-sm flex items-center justify-center text-white mb-6">
+                            <i class="fa-solid fa-user-shield text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">Discreet Acquisition & Disposition</h3>
+                        <p class="text-slate-500 text-sm font-light leading-relaxed">We manage every stage of the acquisition and disposition process with utmost discretion and efficiency, safeguarding our clients' interests while securing advantageous positions in the marketplace.</p>
+                    </div>
+                    <div class="bg-white p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all hover:-translate-y-2">
+                         <div class="w-14 h-14 bg-slate-900 rounded-sm flex items-center justify-center text-white mb-6">
+                            <i class="fa-solid fa-handshake text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">Dedicated Client Partnerships</h3>
+                        <p class="text-slate-500 text-sm font-light leading-relaxed">Imar Commercial is committed to fostering enduring client relationships, built upon trust, transparency, and an unwavering dedication to the advancement of our clients' investment ambitions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insights -->
+        <section id="insights" class="py-24 bg-white">
+          <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+              <div class="order-2 lg:order-1 relative">
+                <img src="https://image2url.com/r2/default/images/1769746898370-cd2ae684-989c-4233-b4ab-9acc687b5c99.png" alt="Solutions" class="rounded-sm shadow-2xl h-[300px] lg:h-[550px] w-full object-cover">
+              </div>
+              <div class="order-1 lg:order-2 space-y-8">
+                <span class="text-blue-600 font-bold text-xs uppercase tracking-widest">Strategic Insight</span>
+                <h2 class="font-display text-5xl text-slate-900 leading-tight">Distinguished Brokerage for Premier Assets.</h2>
+                <p class="text-slate-600 text-lg leading-relaxed font-light">Imar Commercial excels in facilitating the acquisition and disposition of premier hospitality assets, leveraging industry acumen.</p>
+                <div class="space-y-6 pt-4">
+                  <div class="flex gap-4">
+                    <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-900"><i class="fa-solid fa-chart-line"></i></div>
+                    <div><h4 class="font-bold text-slate-900">Tailored Investment Strategies</h4><p class="text-sm text-slate-500">Meticulously aligning opportunities with unique client objectives.</p></div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-900"><i class="fa-solid fa-eye-slash"></i></div>
+                    <div><h4 class="font-bold text-slate-900">Discreet Acquisition</h4><p class="text-sm text-slate-500">Managing processes with utmost discretion and positioning.</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Bio Section -->
+        <section id="about" class="py-32 bg-slate-50">
+          <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+              <div class="space-y-10">
+                <div class="space-y-2">
+                  <span class="text-slate-400 font-bold text-xs uppercase tracking-[0.3em]">The Principal</span>
+                  <h2 class="font-display text-6xl text-slate-900">Eli Gunesebakan</h2>
+                  <p class="text-blue-600 font-bold text-sm uppercase tracking-widest">CCIM, SIOR • Principal Broker</p>
+                </div>
+                <div class="space-y-6 text-slate-700 leading-relaxed font-light text-lg">
+                  <p>
+                    Eli is a seasoned commercial real estate broker with a robust background in engineering and a focus on investment sales, hospitality, and retail sectors. Transitioning from the oil and gas industry, Eli brings a unique perspective to commercial and industrial property transactions, adeptly navigating the complexities of the Florida real estate market.
+                  </p>
+                  <p>
+                    Eli's proactive approach distinguishes him in the industry. He actively guides clients through every phase of the real estate process, ensuring that each transaction aligns with their strategic objectives. His expertise encompasses securing prime investment opportunities, facilitating hospitality ventures, and identifying optimal retail locations.
+                  </p>
+                  <p>
+                    Holding a B.S.E. in Mechanical Engineering from Louisiana Tech University, Eli is a Certified Commercial Investment Member (CCIM) and a member of the Society of Industrial and Office Realtors (SIOR). Eli's dedication to client success, combined with his analytical skills and industry knowledge, makes him a trusted advisor in Florida's commercial real estate landscape.
+                  </p>
+                </div>
+              </div>
+              <div class="relative group">
+                <div class="aspect-[1/1] max-w-[500px] w-full mx-auto overflow-hidden shadow-2xl relative z-10 border-[12px] md:border-[16px] border-white">
+                  <img src="https://image2url.com/r2/default/images/1769745900083-a4552693-d504-4ced-9e85-d7377fa7b799.png" alt="Eli Gunesebakan, CCIM, SIOR • Principal Broker" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-600 -z-0 opacity-10 blur-3xl"></div>
+                <div class="absolute -top-10 -left-10 w-64 h-64 bg-slate-900 -z-0 opacity-5 blur-3xl"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 bg-slate-950 text-white scroll-mt-20">
+          <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+              <div>
+                <h2 class="font-display text-5xl mb-8">Initiate a <br />Professional Dialogue.</h2>
+                <div class="space-y-8">
+                  <div class="flex items-start gap-6"><div class="w-14 h-14 bg-white/5 border border-white/10 rounded-full flex items-center justify-center shrink-0"><i class="fa-solid fa-phone"></i></div><div><h4 class="font-bold text-slate-400 text-xs uppercase tracking-widest">Direct Line</h4><p class="text-xl">305.401.4703</p></div></div>
+                  <div class="flex items-start gap-6"><div class="w-14 h-14 bg-white/5 border border-white/10 rounded-full flex items-center justify-center shrink-0"><i class="fa-solid fa-envelope"></i></div><div><h4 class="font-bold text-slate-400 text-xs uppercase tracking-widest">Confidential Email</h4><p class="text-xl break-all">eli@imarcommercial.com</p></div></div>
+                  <div class="flex items-start gap-6"><div class="w-14 h-14 bg-white/5 border border-white/10 rounded-full flex items-center justify-center shrink-0"><i class="fa-solid fa-location-dot"></i></div><div><h4 class="font-bold text-slate-400 text-xs uppercase tracking-widest">Office HQ</h4><p class="text-lg">1000 Brickell Ave STE 715, Miami, FL</p></div></div>
+                </div>
+              </div>
+              <div class="bg-white p-8 md:p-14 text-slate-900 shadow-2xl">
+                <form id="contact-form" class="space-y-8">
+                  <input id="contact-name" type="text" placeholder="Full Name" class="w-full border-b border-slate-200 py-3 outline-none focus:border-blue-600">
+                  <input id="contact-email" type="email" placeholder="Business Email" class="w-full border-b border-slate-200 py-3 outline-none focus:border-blue-600">
+                  <textarea id="contact-message" placeholder="Investment Inquiry" class="w-full border-b border-slate-200 py-3 outline-none focus:border-blue-600 h-24 resize-none"></textarea>
+                  <button type="submit" class="w-full bg-slate-900 text-white font-bold py-5 hover:bg-slate-800 uppercase tracking-[0.3em] text-xs">Submit Inquiry</button>
+                </form>
+              </div>
+          </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-16 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 text-center md:text-left">
+          <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="flex flex-col items-center md:items-start gap-2">
+              <span class="text-2xl font-bold tracking-tighter text-slate-900 uppercase">IMAR <span class="font-light text-slate-400">COMMERCIAL</span></span>
+              <span class="text-[10px] text-slate-400 font-bold uppercase tracking-[0.4em]">Distinguished Brokerage • CCIM • SIOR</span>
+            </div>
+            <div class="flex gap-12 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              <a href="#services">Expertise</a><a href="#about">Bio</a><a href="#contact">Contact</a>
+            </div>
+            <div class="flex gap-6"><a href="#"><i class="fa-brands fa-linkedin-in text-slate-300"></i></a><a href="#"><i class="fa-brands fa-x-twitter text-slate-300"></i></a></div>
+          </div>
+          <div class="mt-16 pt-8 border-t border-slate-50 text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.3em]">
+            © 2026 IMAR COMMERCIAL. Licensed Florida Real Estate Broker.
+          </div>
+        </div>
+    </footer>
+
+    <!-- AI Advisor Chat Widget -->
+    <div id="chat-widget" class="fixed bottom-8 right-8 z-[60]">
+        <div id="chat-window" class="hidden bg-white w-[300px] md:w-[400px] h-[500px] rounded-3xl shadow-2xl flex flex-col border border-slate-100 overflow-hidden mb-4">
+            <div class="bg-slate-900 p-4 text-white flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"><i class="fa-solid fa-robot"></i></div>
+                    <div><h4 class="font-bold text-sm">Market Advisor</h4><div class="flex items-center gap-1.5"><span class="w-2 h-2 bg-green-500 rounded-full"></span><span class="text-[10px] text-slate-300">AI Powered</span></div></div>
+                </div>
+                <button id="close-chat" class="hover:bg-white/10 p-2 rounded-full transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
+                <div class="flex justify-start"><div class="max-w-[85%] p-3 rounded-2xl bg-slate-100 text-slate-700 text-sm">Hello! I'm the Imar Commercial AI Advisor. How can I help you today?</div></div>
+            </div>
+            <div class="p-4 border-t border-slate-100 flex gap-2">
+                <input id="chat-input" type="text" placeholder="Ask about market trends..." class="flex-1 bg-slate-50 border-none rounded-full px-4 text-sm focus:ring-0">
+                <button id="send-chat" class="w-10 h-10 bg-slate-900 text-white rounded-full flex items-center justify-center"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button id="open-chat" class="group relative bg-slate-900 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300">
+          <i class="fa-solid fa-comment-dots text-2xl"></i>
+        </button>
+    </div>
+
+    <script type="module" src="./index.tsx"></script>
+</body>
+</html>

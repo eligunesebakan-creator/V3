@@ -1,0 +1,8 @@
+{
+  "name": "Imar v2",
+  "description": "A high-end, AI-powered commercial real estate platform for property management, investment, and leasing services.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
